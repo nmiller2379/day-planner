@@ -41,30 +41,39 @@
 
 
 var time = $(".time-block") 
-var calendarTime = document.querySelector(".hour")
+var calendarTime = (document.querySelector(".hour"))
+var computerTime = parseInt(moment().format("HH"))
+// console.log(computerTime)
+console.log(calendarTime)
+
 
 
 //event listener for save button
 
 // 
-console.log(moment().format("HH"))
+// console.log(moment().format("HH"))
+// console.log(calendarTime.dataset.time)
+// console.log(typeof moment().format("HH"))
 console.log(calendarTime.dataset.time)
-console.log(typeof moment().format("HH"))
-console.log(typeof calendarTime.dataset.time)
 
-if (calendarTime === moment().format("HH")) {
-    console.log("In the present");
+// if (calendarTime === moment().format("HH")) {
+//     console.log("In the present");
     
-} else {console.log("Not in the present")
+// } else {console.log("Not in the present")
     
-}
+// }
+
+// if (calendarTime.dataset.time < computerTime) {console.log("In the past.")
+    
+// } else {console.log("Not in the past.")
+    
+// }
 
 function checkTime() {
-    if (calendarTime > moment().format("HH")) {$("textarea").addClass("past")
-        
-    } else if (calendarTime < moment().format("HH")) {$("textarea").addClass("future")
-        
-    } else $("textarea").addClass("present")
+    if (calendarTime.dataset.time < computerTime) {$(".time-check").addClass("past")}
+    if (calendarTime.dataset.time > computerTime) {$(".time-check").addClass("future")}
+    if (calendarTime.dataset.time === computerTime) {$(".time-check").addClass("present")}
+    
 }
 
 checkTime()
