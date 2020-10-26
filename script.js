@@ -1,51 +1,24 @@
-//$(document).ready(function() {
+//Document.ready function to ensure all the page elements load before jquery begins any DOM manipulation
+$( document ).ready(function() {
 
 
 
 
 
-//})
-//create a dynamic, updatable and savable day planner
-
-//declare variables
-    //time
-    //variables for local storage Wk 4 activity 28 (localStorage.set item, localStorage.get item)
-
-
-//put inside document.ready
-
-//function to load local storage (wk 4 activity 28)
-
-
-//function that compares timblock to current time (should come after local storage has been loaded)
-
-//click function for the save button
-
-//When the user clicks save use local storage to retain information
-    //Grab info in text area 
-    //Grab hour
-    //Put them in storage
-
-//Assess current time and based on time change color of text areas
-//(Loop through HTML elements like an array. Use .each to loop through them)
-//Loop through each hour area -- use if/else statement to compare to current time using the api
-    //if time < current time add class past, etc
-
-    //data attribute on timeblock element in 24-hour time
-    //use moment in 24-hour time
-    //(google jquerry read time attribute)
 
 
 
 
 
-//Declare variables in global memory
+
+
+
 var time = $(".time-block") 
 var calendarTime = (document.querySelector(".hour"))
 var computerTime = parseInt(moment().format("HH"))
 var currentDay = (moment().format("MMMM Do YYYY"))
 // console.log(computerTime)
-// console.log(calendarTime)
+// console.log(calendarTime.dataset.time)
 //console.log(currentDay)
 //Display the current day at the top of the app based on moment()
 $("#currentDay").text(currentDay)
@@ -73,20 +46,32 @@ $("#currentDay").text(currentDay)
     
 // }
 //Declare function used to determine relationship between current time and the timeblock on the calendar
-function checkTime() {
-    if (calendarTime.dataset.time < computerTime) {$(".time-check").addClass("past")}
-    if (calendarTime.dataset.time > computerTime) {$(".time-check").addClass("future")}
-    if (calendarTime.dataset.time === computerTime) {$(".time-check").addClass("present")}
+// function checkTime() {
+//     if (calendarTime.dataset.time < computerTime) {$(".time-check").addClass("past")}
+//     if (calendarTime.dataset.time > computerTime) {$(".time-check").addClass("future")}
+//     if (calendarTime.dataset.time === computerTime) {$(".time-check").addClass("present")}
     
-}
+// }
 //Change timeblocks color depending on the time of the day
-checkTime()
-// connect to momentsjs API for time/date info
+//checkTime()
 
 // use time/date info to dynamically update page
+$(".hour").each(function(i) {
+    if (calendarTime.dataset.time > computerTime) {$(".time-check").addClass("past")
+        
+    } else if (calendarTime.dataset.time > computerTime) {$(".time-check").addClass("future")
+        
+    } else {$(".time-check").addClass("present")}
+    
+}
+)
+});
 
-// 1. figure out how to get time
-// 2. Save button
+
+
+
+// 1. figure out how to get time: Done
+// 2. Save button??
 // 3. Put info in local stoarge
 // 4. Reading from local storage
 //
